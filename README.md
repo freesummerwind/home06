@@ -1,1 +1,3 @@
-Homework #6 on TIMP
+[![Build Status](https://travis-ci.com/freesummerwind/home06.svg?branch=master)](https://travis-ci.com/freesummerwind/home06)
+[![Build Status](https://ci.appveyor.com/project/freesummerwind/home06.svg?branch=master)](https://ci.appveyor.com/project/freesummerwind/home06)
+##Homework #6 on TIMP

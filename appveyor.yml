@@ -1,6 +1,26 @@
 image: Visual Studio 2019
 
+configuration: Release
+
+
+
 build_script:
     - cmake -H. -Bbuild -DCMAKE_INSTALL_PREFIX=install
     - cmake --build build
     - cmake --build build --target install
+    - cmake -H. -Bbuild -DCPACK_GENERATOR=WIX
+    - cmake --build build --target package
+
+artifacts:
+    - path: install\packages\*.msi
+      name: solver
+
+deploy:
+    description: 'Some minor fixes'
+    provider: GitHub
+    auth_token:
+        secure: kB6Fybkn+pcYjP3/dSlpX3+o841PH/ieirWTxlEwJo8LxIh9woZTNPZMa1RbZ42F
+    draft: false
+    prerelease: false
+    on:
+        APPVEYOR_REPO_TAG: true

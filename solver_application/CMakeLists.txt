@@ -6,13 +6,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(${CMAKE_CURRENT_LIST_DIR}/../formatter_ex_lib/CMakeLists.txt)
 
-# specify rules for target solver
+
 
 add_library(libsolver STATIC ${CMAKE_CURRENT_LIST_DIR}/../solver_lib/solver.cpp)
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../solver_lib)
 
 
+
 add_executable(solver ${CMAKE_CURRENT_LIST_DIR}/equation.cpp)
 
 target_link_libraries(solver formatter_ex libsolver)
+
+install(TARGETS solver 
+    RUNTIME DESTINATION bin
+)
